@@ -1,0 +1,90 @@
+.editor-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 24px 50px rgba(15, 23, 42, 0.08);
+  border: 1px solid #f0f2f5;
+}
+
+.editor-card h2 {
+  margin: 0 0 20px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 22px;
+  color: #1d1d1d;
+}
+
+.editor-form {
+  display: grid;
+  gap: 18px;
+}
+
+.editor-form label {
+  display: block;
+  font-size: 14px;
+  color: #444;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.editor-form input,
+.editor-form textarea {
+  width: 100%;
+  margin-top: 8px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid #d7dce6;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  color: #222;
+}
+
+.editor-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.editor-submit,
+.editor-action {
+  border: none;
+  border-radius: 14px;
+  padding: 14px 18px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.editor-submit {
+  background: #0078d4;
+  color: #ffffff;
+}
+
+.editor-action {
+  background: #f3f6fb;
+  color: #1d1d1d;
+  width: fit-content;
+}
+
+.editor-status {
+  margin: 0;
+  color: #1d8624;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.editor-card-row {
+  display: grid;
+  gap: 16px;
+  border: 1px solid #eff2f8;
+  padding: 16px;
+  border-radius: 16px;
+  background: #fbfcff;
+}
+
+.editor-remove {
+  align-self: flex-start;
+  background: #ffe3e3;
+  color: #a62121;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 14px;
+  cursor: pointer;
+  width: fit-content;
+}

@@ -529,6 +529,301 @@
   font-size: 22px;
 }
 
+/* Footer Section Styles */
+.footer-section {
+  background: #ffffff;
+  color: #333;
+  margin-top: 60px;
+}
+
+.footer-cta-section {
+  background: linear-gradient(135deg, #ff7a00 0%, #ff8822 100%);
+  color: #ffffff;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.footer-cta-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.footer-cta-content h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.footer-cta-content p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  max-width: 600px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cta-solid,
+.cta-outline {
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Open Sans', sans-serif;
+  border: 2px solid;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta-solid {
+  background: #0078d4;
+  color: #ffffff;
+  border-color: #0078d4;
+}
+
+.cta-solid:hover {
+  background: #106ebe;
+  border-color: #106ebe;
+}
+
+.cta-outline {
+  background: transparent;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.cta-outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 40px;
+  padding: 60px 0 40px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.footer-column h5 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  color: #000;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column li {
+  margin-bottom: 12px;
+}
+
+.footer-column a {
+  color: #666;
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+  color: #ff6800;
+}
+
+.footer-middle {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.5fr;
+  gap: 60px;
+  padding: 60px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.footer-about {
+  text-align: left;
+}
+
+.footer-logo {
+  margin-bottom: 20px;
+}
+
+.footer-logo img {
+  width: 80px;
+  height: auto;
+}
+
+.footer-about h4 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 16px 0 8px 0;
+  color: #000;
+}
+
+.footer-tagline {
+  font-size: 13px;
+  color: #999;
+  margin: 0 0 16px 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-description {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #666;
+  margin: 0;
+}
+
+.footer-follow {
+  text-align: center;
+}
+
+.footer-follow h5 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  color: #000;
+}
+
+.footer-follow p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  color: #666;
+  margin: 0 0 24px 0;
+  line-height: 1.6;
+}
+
+.social-links {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.social-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #007bff;
+  color: white;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.social-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.social-icon:first-child {
+  background: #1877f2;
+}
+
+.social-icon:nth-child(2) {
+  background: #e4405f;
+}
+
+.social-icon:hover {
+  opacity: 0.8;
+}
+
+.footer-contact {
+  text-align: left;
+}
+
+.footer-contact h5 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+  color: #000;
+}
+
+.contact-item {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+}
+
+.contact-icon {
+  font-size: 20px;
+  min-width: 20px;
+}
+
+.contact-item div {
+  flex: 1;
+  line-height: 1.6;
+}
+
+.contact-item a {
+  color: #ff6800;
+  text-decoration: none;
+}
+
+.contact-item a:hover {
+  text-decoration: underline;
+}
+
+.contact-item strong {
+  color: #000;
+}
+
+.footer-bottom {
+  background: #c75a00;
+  color: #ffffff;
+  padding: 24px 0;
+}
+
+.footer-bottom-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-links a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.footer-links a:hover {
+  opacity: 0.8;
+}
+
+.separator {
+  color: rgba(255, 255, 255, 0.5);
+}
+
 @media (max-width: 1000px) {
   .strip-left {
     flex-wrap: wrap;
@@ -587,6 +882,34 @@
     gap: 14px;
     padding: 20px 0;
   }
+
+  .footer-top {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  .footer-middle {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .footer-bottom-content {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .footer-cta-content h2 {
+    font-size: 36px;
+  }
+
+  .footer-cta-content p {
+    font-size: 16px;
+  }
+
+  .cta-buttons {
+    gap: 16px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -628,5 +951,64 @@
 
   .stats h3 {
     font-size: 28px;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 40px 0 30px;
+  }
+
+  .footer-column h5 {
+    font-size: 15px;
+    margin-bottom: 16px;
+  }
+
+  .footer-column a {
+    font-size: 13px;
+  }
+
+  .footer-middle {
+    padding: 40px 0;
+  }
+
+  .footer-about h4 {
+    font-size: 18px;
+  }
+
+  .footer-contact h5,
+  .footer-follow h5 {
+    font-size: 15px;
+  }
+
+  .contact-item {
+    font-size: 13px;
+  }
+
+  .footer-bottom-content {
+    font-size: 12px;
+  }
+
+  .footer-cta-section {
+    padding: 50px 0;
+  }
+
+  .footer-cta-content h2 {
+    font-size: 28px;
+  }
+
+  .footer-cta-content p {
+    font-size: 14px;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .cta-solid,
+  .cta-outline {
+    width: 100%;
   }
 }

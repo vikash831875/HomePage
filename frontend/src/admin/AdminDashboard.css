@@ -1,0 +1,62 @@
+.admin-dashboard-page {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+.admin-dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 30px;
+}
+
+.admin-dashboard-header h1 {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 36px;
+  color: #1d1d1d;
+}
+
+.admin-dashboard-header p {
+  margin: 10px 0 0;
+  font-family: 'Open Sans', sans-serif;
+  color: #555;
+  line-height: 1.75;
+}
+
+.logout-button {
+  background: #ff6f00;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 22px;
+  cursor: pointer;
+}
+
+.admin-loading,
+.admin-error {
+  width: 100%;
+  padding: 18px;
+  border-radius: 16px;
+  background: #fff4f1;
+  color: #9c2a18;
+  border: 1px solid #ffd6cc;
+  font-family: 'Open Sans', sans-serif;
+  margin-bottom: 24px;
+}
+
+.admin-dashboard-grid {
+  display: grid;
+  gap: 28px;
+}
+
+@media (min-width: 980px) {
+  .admin-dashboard-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

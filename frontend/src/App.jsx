@@ -1,7 +1,11 @@
 import { useEffect, useState } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
+import Footer from './Footer';
+import AdminLogin from './admin/AdminLogin.jsx';
+import AdminDashboard from './admin/AdminDashboard.jsx';
 
-const whyChooseCards = [
+const defaultWhyChooseCards = [
   {
     title: 'Quality Education',
     text: 'CBSE affiliated curriculum with focus on holistic development',
@@ -63,7 +67,7 @@ const testimonials = [
   ['Dev Rishi International School stands out for its modern infrastructure and commitment to excellence.', 'Mr. Amit Patel', '/images/parent-4.png'],
 ];
 
-function App() {
+function HomePage() {
   const [homeData, setHomeData] = useState(null);
 
   useEffect(() => {
@@ -73,11 +77,29 @@ function App() {
       .catch(() => {
         setHomeData({
           schoolName: 'Dev Rishi International School',
-          tagline:
-            'Nurturing excellence with modern education, strong values, and holistic development.',
+          tagline: 'Nurturing excellence with modern education, strong values, and holistic development.',
         });
       });
   }, []);
+
+  const hero = homeData?.hero ?? {
+    backgroundImage: '/images/hero-bg.png',
+    headline: 'Shaping Bright Futures Through Quality Education',
+    subtitle: 'Empowering young minds with knowledge, values, and innovation to create responsible global citizens.',
+    buttonPrimaryText: 'Apply for Admission',
+    buttonSecondaryText: 'Explore our Campus',
+  };
+
+  const about = homeData?.about ?? {
+    title: 'About us',
+    heading: 'Dev Rishi International School',
+    description:
+      'Dev Rishi School is a premier educational institution dedicated to fostering academic excellence, strong moral values, and holistic development. By blending traditional values with modern teaching methodologies, we prepare learners to excel in a rapidly evolving global landscape.',
+  };
+
+  const whyChooseCards = homeData?.whyChooseCards ?? defaultWhyChooseCards;
+  const topPillText = homeData?.topPillText ?? 'V.P.O Salhapur, Nakur, Saharanpur-247342, Uttar Pradesh';
+  const topPillAction = homeData?.topPillAction ?? 'Admission Open for 2026-27 →';
 
   return (
     <div className="page">
@@ -88,13 +110,13 @@ function App() {
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.32.56 3.57.56a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.3 21 3 13.7 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.19 2.45.56 3.57a1 1 0 0 1-.24 1.02l-2.2 2.2Z" />
               </svg>
-              +91 123 456 7890
+              {homeData?.contactPhone || '+91 123 456 7890'}
             </span>
             <span>
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm8 7 8-5H4l8 5Zm0 2L4 9v8h16V9l-8 5Z" />
               </svg>
-              info@devrishischool.edu
+              {homeData?.contactEmail || 'info@devrishischool.edu'}
             </span>
           </div>
           <div className="strip-right">
@@ -126,25 +148,28 @@ function App() {
         </div>
       </header>
 
-      <section className="hero-section" id="hero">
+      <section
+        className="hero-section"
+        id="hero"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.26), rgba(0, 0, 0, 0.26)), url('${hero.backgroundImage}')`,
+        }}
+      >
         <div className="container hero-content">
           <div className="hero-address-pill">
             <span>
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M12 2a7 7 0 0 1 7 7c0 5.25-7 13-7 13S5 14.25 5 9a7 7 0 0 1 7-7Zm0 2a5 5 0 0 0-5 5c0 3.27 3.84 8.56 5 10.08C13.16 17.56 17 12.27 17 9a5 5 0 0 0-5-5Zm0 2.5A2.5 2.5 0 1 1 9.5 9 2.5 2.5 0 0 1 12 6.5Z" />
               </svg>
-              V.P.O Salhapur, Nakur, Saharanpur-247342, Uttar Pradesh
+              {topPillText}
             </span>
-            <span>Admission Open for 2026-27 →</span>
+            <span>{topPillAction}</span>
           </div>
-          <h2>Shaping Bright Futures Through Quality Education</h2>
-          <p>
-            Empowering young minds with knowledge, values, and innovation to create
-            responsible global citizens.
-          </p>
+          <h2>{hero.headline}</h2>
+          <p>{hero.subtitle}</p>
           <div className="hero-actions">
-            <button type="button" className="solid">Apply for Admission</button>
-            <button type="button" className="outline">Explore our Campus</button>
+            <button type="button" className="solid">{hero.buttonPrimaryText}</button>
+            <button type="button" className="outline">{hero.buttonSecondaryText}</button>
           </div>
         </div>
         <button type="button" className="hero-arrow left" aria-label="Previous slide">❮</button>
@@ -170,25 +195,16 @@ function App() {
         <section id="about" className="about section">
           <img className="about-image" src="/images/about.png" alt="About Dev Rishi International School" />
           <div>
-            <h3>About us</h3>
-            <h4>Dev Rishi International School</h4>
-            <p>
-              Dev Rishi School is a premier educational institution dedicated to
-              fostering academic excellence, strong moral values, and holistic
-              development. By blending traditional values with modern teaching
-              methodologies, we prepare learners to excel in a rapidly evolving
-              global landscape.
-            </p>
+            <h3>{about.title}</h3>
+            <h4>{about.heading}</h4>
+            <p>{about.description}</p>
           </div>
         </section>
 
         <section className="section">
-          <h4 className="section-title">
-            Why Choose Dev Rishi International School?
-          </h4>
+          <h4 className="section-title">Why Choose Dev Rishi International School?</h4>
           <p className="section-subtitle">
-            We provide a comprehensive learning environment that prepares students
-            for success in academics and life.
+            We provide a comprehensive learning environment that prepares students for success in academics and life.
           </p>
           <div className="feature-grid">
             {whyChooseCards.map((item) => (
@@ -205,9 +221,7 @@ function App() {
           <h3>Academic</h3>
           <h4>Our Academic Programs</h4>
           <p>
-            Our comprehensive academic programs follow a CBSE-aligned curriculum
-            designed to foster critical thinking, creativity, and intellectual
-            growth in a nurturing learning environment.
+            Our comprehensive academic programs follow a CBSE-aligned curriculum designed to foster critical thinking, creativity, and intellectual growth in a nurturing learning environment.
           </p>
           <div className="program-grid">
             {academicPrograms.map(([grade, title, desc]) => (
@@ -224,8 +238,7 @@ function App() {
           <h3>Activities</h3>
           <h4>Co-Curricular Activities</h4>
           <p>
-            Our co-curricular programs nurture creativity, confidence, and teamwork.
-            Students explore diverse activities that foster holistic development.
+            Our co-curricular programs nurture creativity, confidence, and teamwork. Students explore diverse activities that foster holistic development.
           </p>
         </section>
 
@@ -245,8 +258,7 @@ function App() {
           <h3>Events</h3>
           <h4 className="section-title">Upcoming Events</h4>
           <p className="section-subtitle">
-            Keep up with academic celebrations, annual programs, and student
-            activities happening on campus.
+            Keep up with academic celebrations, annual programs, and student activities happening on campus.
           </p>
           <div className="event-grid">
             {events.map(([date, title, text, image]) => (
@@ -295,14 +307,18 @@ function App() {
         </section>
       </main>
 
-      <footer id="contact" className="footer">
-        <div className="container">
-          <h4>Ready to shape your child&apos;s future?</h4>
-          <p>Admissions open now for the new academic session.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/admin/login" element={<AdminLogin />} />
+      <Route path="/admin/dashboard" element={<AdminDashboard />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
+  );
+}
